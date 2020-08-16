@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="UICCAOA">
+    <meta name="author" content="Jack Lau">
+    <link rel="icon" href="favicon.ico">
+
+    <title>UICCAOA-UICC APDU Organizer Analyst</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">UICCAOA</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="organizer/index_organizer.html">Organizer</a></li>
+            <li><a href="index_analyst.html">Analyst Command APDU</a></li>
+            <li><a href="help.html">Help</a></li>
+          </ul>
+          <!--
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+          -->
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h3 class="page-header">Analyst for UICC Response APDU</h3>
+          <div class="col-xs-8">
+            <label>UICC Command Type for Response APDU:</label><br>
+            <input type="radio" name="ins" id="ins_select" value="A4" checked> SELECT Command【A4】 <br>
+            <input type="radio" name="ins" id="ins_status" value="F2"> STATUS Command【F2】 <br>
+            <input type="radio" name="ins" id="ins_fetch" value="12"> FETCH Command【12】 <br>
+            <input type="radio" name="ins" id="ins_tls" value="tls"> TLS Protocol Message <br>
+            <br>
+          </div>
+
+          <!--
+            Select APDU Response Data: 62298202782183023F00A5098001718701008801008A01058B032F0601C60C9001C0950100830111830101
+            Status APDU Response Data:
+                                    FCP: 622D8202382183027FF38410A0000000871002FF86FFFFFFFFFFFF048A01058B032F0601C6099001C0830101830181
+                                    DF Name: 8410A0000000871002FF86FFFFFFFFFFFF04
+            Fetch APDU Response Data:
+                                    send sms:
+                                    D0338103011300820281830607919471227200008B1F41000C9194712272080200F612027100000D0AB05000F00000000F0000ABCD
+                                    set up menu:
+                                    D050810301250082028182850A542D53656C204D656E758F0D0150696C6968204261686173618F09024E535020313231328F0F035472616E736665722050756C73618F0E044C6179616E616E204578747261
+            TLS Handshake Message:
+              ClientHello:
+                160303003C0100003803038EC6AFC4796A4CDF9B3100A5E0AB544C5A4444ACC2BFC215D309E8A62EDD284900000A008B008C002C00AE00B0010000050001000102
+              ServerHello:
+                16030300510200004D03035EBA75AF63DFA2E34A9BC86D0CF1171810B4D875C60C967C94DD8766CA6C7435202C63D1A9581B256E918B78EECCFF85A5A7E87E4620F0ACE3A08166EEEEFDDB1900AE0000050001000102
+              ServerHelloDone:
+                16030300040E000000
+              ClientKeyExchange:
+                160303001A1000001600143839383630303930303331353030313030303030
+              ChangeCipherSpec:
+                140303000101
+              Finished:
+                1603030050598E3B7B4E5D6FBEA4A236AEE5EDF8C7BB5174E9073CB8DA02B667949EED11F6B4AF79FC9208E23C0F0451221CC9EE295C61DD352E3AD3BDA8841F41F4AC54FA6DB429E22F37446D6B99CB7F5E5B2DFE
+              Application Data:
+                17030300C0FC27DBE031BE4C9D58D1E65E59E6187BF7E43A7DD5CA0F906F0F508C586BA5B3F7DA6EE2DB5A6D4E6194E1FCD110F66892B2F6C8DC365801F69F803CF33E370223F997787C91C03AAFD31AE3C2FA371045FE323393F418B50D925D4F9B2FF75C5515AFE63B2BDA08429ACAE8A156BE5DB767FA360E61A20F2D3D3A25BFD64F25E6AFC672D8CEC67A591A1E63B155891EA60B507E926425C773053CB229F34A4282AED3C95E791AFDE94EEC4952A4D16BAE16F4C563C003F4D79C62C4C6AD13AD
+          -->
+
+          <div class="col-xs-8">
+            <input id="apduText" type="text" placeholder="Please Insert UICC Response APDU" class="form-control" value="62298202782183023F00A5098001718701008801008A01058B032F0601C60C9001C0950100830111830101">
+          </div>
+          <div class="col-xs-2">
+            <button id="analyse" type="submit" class="btn btn-primary" class="form-control">Analyse</button>
+          </div>
+        </div>
+    </div>
+
+    <div id="show_result" class="container-fluid" style="display: none;">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <div class="col-xs-8">
+            
+            <div class="table-responsive">
+
+              <table class="table table-striped table-hover table-condensed">
+                  <tr>
+                    <td>UICC Repsponse APDU Analyst Result:</td>
+                    <td><label id="data"></label></td>
+                  </tr> 
+                  <tr>
+                    <td colspan="2">
+                      <div id="data_field" class="col-xs-12"></div>
+                    </td>
+                  </tr>
+              </table>
+              
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="dist/js/jquery-1.11.1.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+   <!-- <script src="assets/js/docs.min.js"></script>-->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="dist/js/uicc.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#analyse").click(function(){    
+              var apduData = $.trim($("#apduText").val()).toUpperCase();
+              apduData = apduData.replace(/\s+/g, "");
+              var ins = $("input[name='ins']:checked").val();
+              switch (ins) {
+                case INS_SELECT:
+                  analyzeSelectResponse(apduData);
+                  break;
+                case INS_STATUS:
+                  analyzeStatusResponse(apduData);
+                  break;
+                case INS_FETCH:
+                  var pro_cmd_tag = apduData.substr(0, 2);
+                  if (pro_cmd_tag == BTAG_PRO_CMD_D0) {
+                    // support analyse proactive command(non command apdu) for Fetch command;
+                    var lenInfo = getBerTLVLenInfo(apduData.substr(2));
+                    var tagByteNum = lenInfo[0];
+                    apduData = apduData.substr((1 + tagByteNum) * 2); // bertlv-list
+                    analyzeProactiveCmd(apduData, apduData.length / 2);
+                  }
+                  break;
+                case "tls":
+                  analyzeTlsMessage(apduData);
+                  break;
+
+                default:
+                  alert("Not Supported!");
+                  return;
+              };
+
+              $("#show_result").show();
+            });
+
+        });
+
+        
+        // substring(start, end); substr(start, length);
+    </script>
+  </body>
+</html>

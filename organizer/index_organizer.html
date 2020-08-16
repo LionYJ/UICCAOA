@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="UICCAOA">
+    <meta name="author" content="Jack Lau">
+    <link rel="../icon" href="favicon.ico">
+
+    <title>UICCAOA-UICC APDU Organizer Analyst</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">GPAOA</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="index_organizer.html">Organizer</a></li>
+            <li><a href="../index_analyst.html">Analyst</a></li>
+            <li><a href="../help.html">Help</a></li>
+          </ul>
+          <!--
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+          -->
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="index_organizer.html">Organise UICC APDU<span class="sr-only">(current)</span></a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <!-- File Command -->
+            <li><a href="select.html">SELECT</a></li>
+            <li><a href="create_file.html">CREATE FILE</a></li>
+            <li><a href="delete_file.html">DELETE FILE</a></li>
+            <li><a href="deactivate_file.html">DEACTIVATE FILE & INVALIDATE</a></li>
+            <li><a href="activate_file.html">ACTIVATE FILE & REHABILITATE</a></li>
+            <li><a href="terminate_file.html">TERMINATE FILE & CARD USAGE</a></li>
+            <li><a href="resize_file.html">RESIZE FILE</a></li>
+            <li><a href="read_binary.html">READ BINARY</a></li>
+            <li><a href="update_binary.html">UPDATE BINARY</a></li>
+            <li><a href="read_record.html">READ RECORD</a></li>
+            <li><a href="update_record.html">UPDATE RECORD</a></li>
+            <li><a href="search_record.html">SEARCH RECORD & SEEK</a></li>
+            <li><a href="increase.html">INCREASE</a></li>
+            
+            <!-- Data Command -->
+            <li><a href="retrieve_data.html">RETRIEVE DATA</a></li>
+            <li><a href="set_data.html">SET DATA</a></li>
+
+            <!-- PIN Command -->
+            <li><a href="verify_pin.html">VERIFY PIN</a></li>
+            <li><a href="change_pin.html">CHANGE PIN</a></li>
+            <li><a href="disable_pin.html">DISABLE PIN</a></li>
+            <li><a href="enable_pin.html">ENABLE PIN</a></li>
+            <li><a href="unblock_pin.html">UNBLOCK PIN</a></li>
+            
+            <!-- Other Command -->
+            <li><a href="authenticate.html">AUTHENTICATE</a></li>
+            <li><a href="get_challenge.html">GET CHALLENGE</a></li>
+            <li><a href="get_response.html">GET RESPONSE</a></li>
+            <li><a href="manage_channel.html">MANAGE CHANNEL</a></li>
+            <li><a href="manage_sc_channel.html">MANAGE SECURE CHANNE</a></li>
+            <li><a href="status.html">STATUS</a></li>
+            <li><a href="terminal_capability.html">TERMINAL CAPABILITY</a></li>
+            <li><a href="transact_data.html">TRANSACT DATA</a></li>
+
+            <!-- CAT Command -->
+            <li><a href="terminal_profile.html">TERMINAL PROFILE</a></li>
+            <li><a href="envelope.html">ENVELOPE</a></li>
+            <li><a href="fetch.html">FETCH</a></li>
+            <li><a href="terminal_response.html">TERMINAL RESPONSE</a></li>
+            
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h3 class="page-header">Organizer for UICC APDU Command</h3>
+          
+          <!--<h3 class="sub-header">Supported UICC APDU COMMAND</h3>-->
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Supported UICC APDU COMMANDS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- File Command -->
+                <tr>
+                  <td>SELECT</td>
+                  <td>Support Select File</td>
+                </tr>
+                <tr>
+                  <td>CREATE FILE</td>
+                  <td>This function allows the creation of a new file under the current directory.</td>
+                </tr>
+                <tr>
+                  <td>DELETE FILE</td>
+                  <td>This command initiates the deletion of a referenced EF immediately under the current DF, or a DF with its complete subtree.</td>
+                </tr>
+                <tr>
+                  <td>DEACTIVATE FILE & INVALIDATE</td>
+                  <td>This function initiates a reversible deactivation of an EF.</td>
+                </tr>
+                <tr>
+                  <td>ACTIVATE FILE & REHABILITATE</td>
+                  <td>This function reactivates a deactivated EF</td>
+                </tr>
+                <tr>
+                  <td>TERMINATE FILE & CARD USAGE</td>
+                  <td>The TERMINATE DF command initiates the irreversible transition of the currently selected DF/ADF,EF,UICC into the termination state.</td>
+                </tr>
+                <tr>
+                  <td>RESIZE FILE</td>
+                  <td>This command allows to modify the memory space allocated to the MF, a DF/ADF, a transparent file or a linear fixed file or a BER TLV structured EF under the current directory (MF, DF/ADF). </td>
+                </tr>
+                <tr>
+                  <td>READ BINARY</td>
+                  <td>This function reads a string of bytes from the current transparent EF.</td>
+                </tr>
+                <tr>
+                  <td>UPDATE BINARY</td>
+                  <td>This function updates the current transparent EF with a string of bytes. </td>
+                </tr>
+                <tr>
+                  <td>READ RECORD</td>
+                  <td>This function reads one complete record in the current linear fixed or cyclic EF. </td>
+                </tr>
+                <tr>
+                  <td>UPDATE RECORD</td>
+                  <td>This function updates one specific, complete record in the current linear fixed or cyclic EF. </td>
+                </tr>
+                <tr>
+                  <td>SEARCH RECORD & SEEK</td>
+                  <td>This function searches through a linear fixed or cyclic EF to find record(s) containing a specific pattern. </td>
+                </tr>
+                <tr>
+                  <td>INCREASE</td>
+                  <td>This function adds the value given by the terminal to the value of the last increased/updated record of the current cyclic EF, and stores the result into the oldest record. </td>
+                </tr>
+
+                <!-- Data Command -->
+                <tr>
+                  <td>RETRIEVE DATA</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>SET DATA</td>
+                  <td></td>
+                </tr>
+
+                <!-- PIN Command -->
+                <tr>
+                  <td>VERIFY PIN</td>
+                  <td>This function initiates the comparison in the UICC of the PIN verification data sent from the terminal with the PIN reference data stored in the card. </td>
+                </tr>
+                <tr>
+                  <td>CHANGE PIN</td>
+                  <td>The Change PIN command is used to initiate the comparison of the verification data with the PIN, and then to conditionally replace the existing PIN with the new PIN sent to the UICC in the command. </td>
+                </tr>
+                <tr>
+                  <td>DISABLE PIN</td>
+                  <td>The Disable PIN command is used to switch off the requirement to compare the PIN verification data with the PIN reference data. </td>
+                </tr>
+                <tr>
+                  <td>ENABLE PIN</td>
+                  <td>The Enable PIN command is used to switch on the requirement to compare the PIN verification data with the PIN reference data. </td>
+                </tr>
+                <tr>
+                  <td>UNBLOCK PIN</td>
+                  <td>This function is used to reset the PIN retry counter to its initial value and then to conditionally set a new PIN value. </td>
+                </tr>
+
+                <!-- Other Command -->
+                <tr>
+                  <td>AUTHENTICATE</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>GET CHALLENGE</td>
+                  <td>This function is used to create a random number.</td>
+                </tr>
+                <tr>
+                  <td>GET RESPONSE</td>
+                  <td>The command is used to transmit APDUs from the card to the terminal, which otherwise could not be transferred by the protocol.</td>
+                </tr>
+                <tr>
+                  <td>MANAGE CHANNEL</td>
+                  <td>This command opens and closes logical channels.</td>
+                </tr>
+                <tr>
+                  <td>MANAGE SECURE CHANNE</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>STATUS</td>
+                  <td>This function returns information concerning the current directory or current application.</td>
+                </tr>
+                <tr>
+                  <td>TERMINAL CAPABILITY</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>TRANSACT DATA</td>
+                  <td></td>
+                </tr>
+
+                <!-- CAT Commadn -->
+                <tr>
+                  <td>TERMINAL PROFILE</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>ENVELOPE</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>FETCH</td>
+                  <td>This function is used to transfer a proactive command from the UICC to the terminal (e.g. from a CAT application).</td>
+                </tr>
+                <tr>
+                  <td>TERMINAL RESPONSE</td>
+                  <td></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../dist/js/jquery-1.11.1.js"></script>
+    <script src="../dist/js/bootstrap.min.js"></script>
+    <script src="../assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
